@@ -1,0 +1,47 @@
+{% extends 'partials/base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-8 offset-md-1">
+               <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Hypertension</th>
+                      <th scope="col">Heart Disease</th>
+                      <th scope="col">Ever Married</th>
+                      <th scope="col">Work Type</th>
+                      <th scope="col">Residence Type</th>
+                      <th scope="col">Avge Glucose Level</th>
+                      <th scope="col">BMI</th>
+                      <th scope="col">Smoking Status</th>
+                      <th scope="col">Stroke Prediction</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for data in predicted_strokes %}
+                    <tr>
+                      <th scope="row">{{ data.name }}</th>
+                      <td>{{ data.get_gender_display }}</td>
+                      <td>{{ data.age }}</td>
+                      <td>{{ data.get_hypertension_display }}</td>
+                      <td>{{ data.get_heart_disease_display }}</td>
+                      <td>{{ data.get_ever_married_display }}</td>
+                      <td>{{ data.get_work_type_display }}</td>
+                      <td>{{ data.get_residence_type_display }}</td>
+                      <td>{{ data.average_glucose_level }}</td>
+                      <td>{{ data.bmi }}</td>
+                      <td>{{ data.get_smoking_status_display }}</td>
+                      <td>{{ data.get_stroke_predictions_display }}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
